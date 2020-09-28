@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:bug_tracker.Views"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="BugSharp" Height="250" Width="450">
+        Background="Azure"
+        Title="BugSharp" Height="250" Width="450" WindowStartupLocation="CenterScreen">
 
     <!--<Window.Background>
         <ImageBrush ImageSource="D:\Programs\C#\bug-tracker\loginBg.png" />
@@ -89,11 +90,12 @@
 
         <Button Grid.Row="1" Grid.Column="2" 
             Margin="15" FontSize="20" FontFamily="Ariel" 
+                FontWeight="Bold"
                 Background="#9cc410"
                 Foreground="white"
                 Style="{DynamicResource RoundedButtonStyle}" >
-            <StackPanel>
-                <TextBlock Text="User Login" TextAlignment="Center"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Grid.Column="1" Text="User Login" TextAlignment="Center"/>
             </StackPanel>
         </Button>
 
@@ -101,6 +103,7 @@
                 Margin="15" FontSize="20" FontFamily="Ariel"
                 Background="#9cc410" 
                 Foreground="white"
+                FontWeight="Bold"
                 Style="{DynamicResource RoundedButtonStyle}">
             <StackPanel>
                 <TextBlock Text="Admin Login" TextAlignment="Center"/>
