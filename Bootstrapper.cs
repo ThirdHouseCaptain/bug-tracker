@@ -20,6 +20,7 @@ namespace bug_tracker
         {
             DisplayRootViewFor<MainLoginViewModel>();
             DisplayRootViewFor<LoginViewModel>();
+            DisplayRootViewFor<AdminViewModel>();
         }
     }
 }

@@ -6,8 +6,114 @@
         xmlns:local="clr-namespace:bug_tracker.Views"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Title="BugSharp - Login" Height="450" Width="450" WindowStartupLocation="CenterScreen"
-        Background="Azure"  WindowStyle="ThreeDBorderWindow">
+        Title="BugSharp - Login" Height="450" Width="450" 
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        AllowsTransparency="True"
+        Background="Transparent"  WindowStyle="None">
+    <Border CornerRadius="10" Background="Azure" BorderBrush="Gray" BorderThickness="0.3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="1" Grid.Column="1"
+               Grid.ColumnSpan="2"
+               Source="D:\Programs\C#\bug-tracker\logo.png"
+               />
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="Admin Login"
+                   x:Name="adminUserLoginText" FontSize="25"
+                   VerticalAlignment="Center"
+                   FontWeight="DemiBold"
+                   Grid.ColumnSpan="2"
+                   FontFamily="Montserrat-Black"
+                   HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="Username:"
+                   VerticalAlignment="Center"
+                   
+                   HorizontalAlignment="Center"
+                   FontSize="20"
+                   FontFamily="Montserrat-Black"/>
+
+            <TextBox Grid.Row="3" Grid.Column="2" 
+                 FontSize="25"
+                 Height="35"
+                 VerticalAlignment="Center"
+                 Margin="10, 5, 20, 5"
+                 Background="#FFF6F6F6"
+                 Foreground="DarkGray"
+                 TextAlignment="Center"
+                 Style="{DynamicResource RoundedCornerTextboxStyle}"/>
+
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="Password:"
+                   VerticalAlignment="Center"
+                   
+                   HorizontalAlignment="Center"
+                   FontSize="20"
+                   FontFamily="Montserrat-Black"/>
+
+            <TextBox Grid.Row="4" Grid.Column="2"
+                 FontSize="25"
+                 Height="35"
+                 Margin="10, 5, 20, 5"
+                 VerticalAlignment="Center"
+                 Background="#FFF6F6F6"
+                 Foreground="DarkGray"
+                 TextAlignment="Center" 
+                 Style="{DynamicResource RoundedCornerTextboxStyle}"/>
+
+            <Button Grid.Column="1" Grid.Row="5" Margin="120, 5, 120, 5"
+                Content="Login" FontWeight="Bold"
+                Grid.ColumnSpan="2"
+                FontFamily="Arial" FontSize="20"
+                Foreground="white" Background="#9cc410" 
+                Style="{DynamicResource RoundedButtonStyle}"/>
+
+            <Button x:Name="closeBtn"  Background="Transparent"
+                FontWeight="Bold"
+                Margin="250,3,3,140"
+                Height="22"
+                Width="22"
+                Click="closeBtn_Click"
+                Style="{DynamicResource RoundedButtonStyle}" 
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Image Source="D:\Programs\C#\bug-tracker\close4.png"
+                   Height="15" Width="15"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+
+            <Button x:Name="minimizeBtn"  Background="Transparent"
+                FontWeight="Bold"
+                Margin="232,6,6,142"
+                Height="22"
+                Width="22"
+                Click="minimizeBtn_Click"
+                Style="{DynamicResource RoundedButtonStyle}" 
+                Grid.Column="2" Grid.RowSpan="2">
+                <Image Source="D:\Programs\C#\bug-tracker\minimize.png"
+                   Height="15" Width="15"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+        </Grid>
+    </Border>
     <Window.Resources>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
@@ -109,74 +215,5 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
 
-        <Image Grid.Row="1" Grid.Column="1"
-               Grid.ColumnSpan="2"
-               Source="D:\Programs\C#\bug-tracker\logo.png"
-               />
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="Admin Login"
-                   x:Name="adminUserLoginText" FontSize="25"
-                   VerticalAlignment="Center"
-                   FontWeight="DemiBold"
-                   Grid.ColumnSpan="2"
-                   FontFamily="Montserrat-Black"
-                   HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="3" Grid.Column="1" Text="Username:"
-                   VerticalAlignment="Center"
-                   
-                   HorizontalAlignment="Center"
-                   FontSize="20"
-                   FontFamily="Montserrat-Black"/>
-
-        <TextBox Grid.Row="3" Grid.Column="2" 
-                 FontSize="25"
-                 Height="35"
-                 VerticalAlignment="Center"
-                 Margin="10, 5, 20, 5"
-                 Background="#FFF6F6F6"
-                 Foreground="DarkGray"
-                 TextAlignment="Center"
-                 Style="{DynamicResource RoundedCornerTextboxStyle}"/>
-
-        <TextBlock Grid.Row="4" Grid.Column="1" Text="Password:"
-                   VerticalAlignment="Center"
-                   
-                   HorizontalAlignment="Center"
-                   FontSize="20"
-                   FontFamily="Montserrat-Black"/>
-
-        <TextBox Grid.Row="4" Grid.Column="2"
-                 FontSize="25"
-                 Height="35"
-                 Margin="10, 5, 20, 5"
-                 VerticalAlignment="Center"
-                 Background="#FFF6F6F6"
-                 Foreground="DarkGray"
-                 TextAlignment="Center" 
-                 Style="{DynamicResource RoundedCornerTextboxStyle}"/>
-
-        <Button Grid.Column="1" Grid.Row="5" Margin="120, 5, 120, 5"
-                Content="Login" FontWeight="Bold"
-                Grid.ColumnSpan="2"
-                FontFamily="Arial" FontSize="20"
-                Foreground="white" Background="#9cc410" Style="{DynamicResource RoundedButtonStyle}"
-                />
-
-    </Grid>
 </Window>

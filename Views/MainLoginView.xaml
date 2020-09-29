@@ -6,12 +6,84 @@
         xmlns:local="clr-namespace:bug_tracker.Views"
         mc:Ignorable="d"
         ResizeMode="CanMinimize"
-        Background="Azure"
+        Background="Transparent"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        AllowsTransparency="True"
         Title="BugSharp" Height="250" Width="450" WindowStartupLocation="CenterScreen">
 
-    <!--<Window.Background>
-        <ImageBrush ImageSource="D:\Programs\C#\bug-tracker\loginBg.png" />
-    </Window.Background>-->
+    <Border CornerRadius="10" Background="Azure" BorderBrush="Gray" BorderThickness="0.3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="D:\Programs\C#\bug-tracker\logo.png" Grid.Row="1" 
+               Grid.Column="1" Grid.RowSpan="2"/>
+
+            <Button Grid.Row="1" Grid.Column="2" 
+            Margin="15" FontSize="20" FontFamily="Ariel" 
+                FontWeight="Bold"
+                Background="#9cc410"
+                Foreground="white"
+                Style="{DynamicResource RoundedButtonStyle}" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Grid.Column="1" Text="User Login" TextAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Row="2" Grid.Column="2"
+                Margin="15" FontSize="20" FontFamily="Ariel"
+                Background="#9cc410" 
+                Foreground="white"
+                FontWeight="Bold"
+                Style="{DynamicResource RoundedButtonStyle}">
+                <StackPanel>
+                    <TextBlock Text="Admin Login" TextAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="closeBtn"  Background="Transparent"
+                FontWeight="Bold"
+                Margin="200,3,3,95"
+                Height="22"
+                Width="22"
+                Click="closeBtn_Click"
+                Style="{DynamicResource RoundedButtonStyle}" 
+                Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Image Source="D:\Programs\C#\bug-tracker\close4.png"
+                   Height="15" Width="15"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+
+            <Button x:Name="minimizeBtn"  Background="Transparent"
+                FontWeight="Bold"
+                Margin="182,6,6,97"
+                Height="22"
+                Width="22"
+                Click="minimizeBtn_Click"
+                Style="{DynamicResource RoundedButtonStyle}" 
+                Grid.Column="2" Grid.RowSpan="2">
+                <Image Source="D:\Programs\C#\bug-tracker\minimize.png"
+                   Height="15" Width="15"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+        </Grid>
+    </Border>
+
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -70,46 +142,4 @@
         </Style>
     </Window.Resources>
 
-
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
-
-        <Image Source="D:\Programs\C#\bug-tracker\logo.png" Grid.Row="1" 
-               Grid.Column="1" Grid.RowSpan="2"/>
-
-        <Button Grid.Row="1" Grid.Column="2" 
-            Margin="15" FontSize="20" FontFamily="Ariel" 
-                FontWeight="Bold"
-                Background="#9cc410"
-                Foreground="white"
-                Style="{DynamicResource RoundedButtonStyle}" >
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Grid.Column="1" Text="User Login" TextAlignment="Center"/>
-            </StackPanel>
-        </Button>
-
-        <Button Grid.Row="2" Grid.Column="2"
-                Margin="15" FontSize="20" FontFamily="Ariel"
-                Background="#9cc410" 
-                Foreground="white"
-                FontWeight="Bold"
-                Style="{DynamicResource RoundedButtonStyle}">
-            <StackPanel>
-                <TextBlock Text="Admin Login" TextAlignment="Center"/>
-            </StackPanel>
-        </Button>
-
-
-    </Grid>
 </Window>
