@@ -4,9 +4,344 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bug_tracker.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
         mc:Ignorable="d"
-        Title="AdminView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        ResizeMode="CanMinimize"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        WindowStyle="None"
+        Title="AdminView"
+        Height="600"
+        Width="1080"
+        Foreground="White">
+
+    <Window.Resources>
+        <Storyboard x:Key="OpenMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0"
+                                      Value="70" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3"
+                                      Value="180" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="CloseMenu">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)"
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0"
+                                      Value="180" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3"
+                                      Value="70" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2"
+                                   SnapsToDevicePixels="true"
+                                   Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                   StrokeThickness="1"
+                                   StrokeDashArray="1 2" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background"
+                         Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border"
+                         Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background"
+                         Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border"
+                         Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background"
+                         Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border"
+                         Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background"
+                         Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border"
+                         Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground"
+                         Color="#FF838383" />
+        <Style x:Key="RoundedButtonStyle"
+               TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle"
+                    Value="{StaticResource FocusVisual}" />
+            <Setter Property="Background"
+                    Value="{StaticResource Button.Static.Background}" />
+            <Setter Property="BorderBrush"
+                    Value="{StaticResource Button.Static.Border}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="Padding"
+                    Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border"
+                                CornerRadius="30"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="0"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter"
+                                              Focusable="False"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted"
+                                     Value="true">
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver"
+                                     Value="true">
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="#439b1b" />
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource Button.MouseOver.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed"
+                                     Value="true">
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="#265d10" />
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource Button.Pressed.Border}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled"
+                                     Value="false">
+                                <Setter Property="Background"
+                                        TargetName="border"
+                                        Value="{StaticResource Button.Disabled.Background}" />
+                                <Setter Property="BorderBrush"
+                                        TargetName="border"
+                                        Value="{StaticResource Button.Disabled.Border}" />
+                                <Setter Property="TextElement.Foreground"
+                                        TargetName="contentPresenter"
+                                        Value="{StaticResource Button.Disabled.Foreground}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.MouseEnter"
+                      SourceName="ListViewMenu">
+            <BeginStoryboard Storyboard="{StaticResource OpenMenu}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.MouseLeave"
+                      SourceName="ListViewMenu">
+            <BeginStoryboard Storyboard="{StaticResource CloseMenu}" />
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Border CornerRadius="10"
+            Background="Azure"
+            BorderBrush="Gray"
+            BorderThickness="0.3">
+        <Grid>
+            <Grid x:Name="GridMain"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Bottom"
+                  Height="540"
+                  Width="1010" />
+            <Grid Height="60"
+                  VerticalAlignment="Top"
+                  Background="#347914">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="10"
+                                      ShadowDepth="1"
+                                      Color="#FFACACAC" />
+                </Grid.Effect>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button x:Name="minimizeBtn"
+                            Background="Transparent"
+                            FontWeight="Bold"
+                            Height="40"
+                            Width="40"
+                            Click="minimizeBtn_Click"
+                            Style="{DynamicResource RoundedButtonStyle}"
+                            Grid.Column="2"
+                            Grid.RowSpan="2">
+                        <Image Source="D:\Programs\C#\bug-tracker\minimize.png"
+                               Height="25"
+                               Width="25"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               RenderOptions.BitmapScalingMode="HighQuality" />
+                    </Button>
+
+                    <Button x:Name="closeBtn"
+                            Background="Transparent"
+                            FontWeight="Bold"
+                            Height="40"
+                            Width="40"
+                            Click="closeBtn_Click"
+                            Style="{DynamicResource RoundedButtonStyle}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Grid.Column="2"
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="2">
+                        <Image Source="D:\Programs\C#\bug-tracker\close4.png"
+                               Height="25"
+                               Width="25"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               RenderOptions.BitmapScalingMode="HighQuality" />
+                    </Button>
+
+                    <TextBlock x:Name="currentUser"
+                               Text=""
+                               VerticalAlignment="Center"
+                               FontSize="16" />
+                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges"
+                                             StaysOpen="False"
+                                             Margin="10">
+                        <!--<StackPanel Width="150">
+                            <Button Content="Settings"/>
+                            <Button Content="Account"/>
+                            <Button Content="Help"/>
+                            <Separator/>
+                            <Button Content="Logout"/>
+                        </StackPanel>-->
+                    </materialDesign:PopupBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <!--<Image Source="D:\Programs\C#\bug-tracker\logo_n.png"/>-->
+                    <TextBlock FontFamily="Montserrat-Black"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="22">BugSharp Admin Panel</TextBlock>
+                </StackPanel>
+
+            </Grid>
+            <Grid x:Name="GridMenu"
+                  Width="70"
+                  HorizontalAlignment="Left"
+                  Background="#1c3f0c">
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="10"
+                                      ShadowDepth="1"
+                                      Color="#FFAEAEAE" />
+                </Grid.Effect>
+                <StackPanel>
+                    <Grid Height="140"
+                          Background="White"
+                          RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+
+                        <Image Height="120"
+                               Source="D:\Programs\C#\bug-tracker\logo_n.png"
+                               VerticalAlignment="Bottom">
+                            <Image.Effect>
+                                <DropShadowEffect BlurRadius="10"
+                                                  ShadowDepth="1"
+                                                  Color="#FFAEAEAE" />
+                            </Image.Effect>
+                        </Image>
+
+                        <!--<Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" 
+                                Width="60" Margin="5" HorizontalAlignment="Right" 
+                                VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
+                                Background="{x:Null}" BorderBrush="{x:Null}" 
+                                Foreground="#9cc410" Click="ButtonCloseMenu_Click">
+                            <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
+                        </Button>-->
+
+                        <!--<Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" 
+                                HorizontalAlignment="Right" VerticalAlignment="Top" 
+                                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
+                                Background="{x:Null}" BorderBrush="{x:Null}" 
+                                Foreground="#9cc410" 
+                                Click="ButtonOpenMenu_Click">
+                            <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
+                        </Button>-->
+                    </Grid>
+                    <ListView x:Name="ListViewMenu"
+                              Foreground="#9cc410"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              SelectionChanged="ListViewMenu_SelectionChanged">
+                        <ListViewItem x:Name="ItemHome"
+                                      Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ViewDashboard"
+                                                         Height="25"
+                                                         Width="25"
+                                                         Margin="10" />
+                                <TextBlock Text="Home"
+                                           VerticalAlignment="Center"
+                                           Margin="20 10" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem x:Name="ItemCreate"
+                                      Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Pencil"
+                                                         Height="25"
+                                                         Width="25"
+                                                         Margin="10" />
+                                <TextBlock Text="Create"
+                                           VerticalAlignment="Center"
+                                           Margin="20 10" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Ticket"
+                                                         Height="25"
+                                                         Width="25"
+                                                         Margin="10" />
+                                <TextBlock Text="Tickets"
+                                           VerticalAlignment="Center"
+                                           Margin="20 10" />
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Message"
+                                                         Height="25"
+                                                         Width="25"
+                                                         Margin="10" />
+                                <TextBlock Text="Messages"
+                                           VerticalAlignment="Center"
+                                           Margin="20 10" />
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+
 </Window>
