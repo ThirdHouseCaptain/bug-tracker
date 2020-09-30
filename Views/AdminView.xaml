@@ -10,6 +10,7 @@
         ResizeMode="CanMinimize"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
         Background="Transparent"
         WindowStyle="None"
         Title="AdminView"
@@ -185,7 +186,7 @@
                             Style="{DynamicResource RoundedButtonStyle}"
                             Grid.Column="2"
                             Grid.RowSpan="2">
-                        <Image Source="D:\Programs\C#\bug-tracker\minimize.png"
+                        <Image Source="D:\Programs\C#\bug-tracker\minimizew.png"
                                Height="25"
                                Width="25"
                                HorizontalAlignment="Center"
@@ -205,7 +206,7 @@
                             Grid.Column="2"
                             Grid.RowSpan="2"
                             Grid.ColumnSpan="2">
-                        <Image Source="D:\Programs\C#\bug-tracker\close4.png"
+                        <Image Source="D:\Programs\C#\bug-tracker\closew.png"
                                Height="25"
                                Width="25"
                                HorizontalAlignment="Center"
@@ -232,10 +233,15 @@
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center">
                     <!--<Image Source="D:\Programs\C#\bug-tracker\logo_n.png"/>-->
-                    <TextBlock FontFamily="Montserrat-Black"
+                    <TextBlock FontFamily="Bungee"
+                               Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               FontSize="22">BugSharp Admin Panel</TextBlock>
+                               FontSize="22">BugSharp</TextBlock>
+                    <TextBlock FontFamily="Lemon Milk"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15" Text=" Admin Panel" Margin="0,21"/>
                 </StackPanel>
 
             </Grid>
@@ -263,31 +269,15 @@
 
                         <Image Height="120"
                                Source="D:\Programs\C#\bug-tracker\logo_n.png"
-                               VerticalAlignment="Bottom">
+                               VerticalAlignment="Center">
                             <Image.Effect>
                                 <DropShadowEffect BlurRadius="10"
                                                   ShadowDepth="1"
                                                   Color="#FFAEAEAE" />
                             </Image.Effect>
                         </Image>
-
-                        <!--<Button x:Name="ButtonCloseMenu" Visibility="Collapsed" Height="60" 
-                                Width="60" Margin="5" HorizontalAlignment="Right" 
-                                VerticalAlignment="Top" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
-                                Background="{x:Null}" BorderBrush="{x:Null}" 
-                                Foreground="#9cc410" Click="ButtonCloseMenu_Click">
-                            <materialDesign:PackIcon Kind="ArrowLeft" Width="25" Height="25"/>
-                        </Button>-->
-
-                        <!--<Button x:Name="ButtonOpenMenu" Height="60" Width="60" Margin="5" 
-                                HorizontalAlignment="Right" VerticalAlignment="Top" 
-                                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" 
-                                Background="{x:Null}" BorderBrush="{x:Null}" 
-                                Foreground="#9cc410" 
-                                Click="ButtonOpenMenu_Click">
-                            <materialDesign:PackIcon Kind="Menu" Width="25" Height="25"/>
-                        </Button>-->
                     </Grid>
+                    
                     <ListView x:Name="ListViewMenu"
                               Foreground="#9cc410"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -295,13 +285,21 @@
                         <ListViewItem x:Name="ItemHome"
                                       Height="60">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="ViewDashboard"
+                                <materialDesign:PackIcon Kind="AccountSupervisor"
                                                          Height="25"
                                                          Width="25"
                                                          Margin="10" />
-                                <TextBlock Text="Home"
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="Employee"
                                            VerticalAlignment="Center"
-                                           Margin="20 10" />
+                                           Margin="20 5" 
+                                           />
+                                    <TextBlock Text="Management"
+                                           VerticalAlignment="Center"
+                                           Margin="20 -5" 
+                                           />
+
+                                </StackPanel>
                             </StackPanel>
                         </ListViewItem>
                         <ListViewItem x:Name="ItemCreate"
