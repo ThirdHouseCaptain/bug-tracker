@@ -27,8 +27,12 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
 
-            <Image Source="D:\Programs\C#\bug-tracker\logo.png" Grid.Row="1" 
-               Grid.Column="1" Grid.RowSpan="2"/>
+            <Image Grid.Row="1" 
+               Grid.Column="1" Grid.RowSpan="2">
+                <Image.Source>
+                    <BitmapImage UriSource="/images/logo.png"/>
+                </Image.Source>
+            </Image>
 
             <Button Grid.Row="1" Grid.Column="2" 
             Margin="15" FontSize="20" FontFamily="Ariel" 
@@ -60,11 +64,15 @@
                 Click="closeBtn_Click"
                 Style="{DynamicResource RoundedButtonStyle}" 
                 Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
-                <Image Source="D:\Programs\C#\bug-tracker\close4.png"
+                <Image
                    Height="15" Width="15"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   RenderOptions.BitmapScalingMode="HighQuality"/>
+                   RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image.Source>
+                        <BitmapImage UriSource="/images/close4.png"/>
+                    </Image.Source>
+                </Image>
             </Button>
 
             <Button x:Name="minimizeBtn"  Background="Transparent"
@@ -75,11 +83,15 @@
                 Click="minimizeBtn_Click"
                 Style="{DynamicResource RoundedButtonStyle}" 
                 Grid.Column="2" Grid.RowSpan="2">
-                <Image Source="D:\Programs\C#\bug-tracker\minimize.png"
+                <Image 
                    Height="15" Width="15"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   RenderOptions.BitmapScalingMode="HighQuality"/>
+                   RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image.Source>
+                        <BitmapImage UriSource="/images/minimize.png"/>
+                    </Image.Source>
+                </Image>
             </Button>
         </Grid>
     </Border>

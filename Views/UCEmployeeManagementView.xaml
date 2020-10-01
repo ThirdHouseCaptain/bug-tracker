@@ -76,7 +76,7 @@
                    FontSize="20"
                    FontFamily="Oregon LDO"/>
         
-        <TextBlock Grid.Row="7" Grid.Column="1" Text="Username:"
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="Employee ID:"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
                    Foreground="DarkGreen"
@@ -94,7 +94,7 @@
                 Grid.ColumnSpan="3"
                 Content="Submit" FontWeight="Bold"
                 FontFamily="Arial" FontSize="20"
-                Foreground="white" Background="#9cc410" 
+                Foreground="white" Background="#9cc410" Click="Button_Click" 
                 />
 
         <TextBlock Grid.Row="2" Grid.Column="2" Text=":"
@@ -149,26 +149,31 @@
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
+                 x:Name="FirstName"
                  />
         <TextBox Grid.Row="3" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
+                 x:Name="LastName"
                  />
         <TextBox Grid.Row="4" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
+                 x:Name="PhoneNumber"
                  />
         <TextBox Grid.Row="5" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
+                 x:Name="EmailID"
                  />
         <ComboBox Grid.Row="6" Grid.Column="3" 
                   Margin="10,0,20,0" Foreground="Green"
                   FontSize="15"
-                  SelectedIndex="0" FontFamily="Oregon LDO">
+                  SelectedIndex="0" FontFamily="Oregon LDO"
+                  x:Name="Position">
             <ComboBoxItem>
                 Developer
             </ComboBoxItem>
@@ -182,18 +187,18 @@
                 Admin
             </ComboBoxItem>
         </ComboBox>
-        <TextBox Grid.Row="7" Grid.Column="3" FontSize="20" Height="35"
+        <TextBlock Grid.Row="7" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
+                 Text="{Binding Path=FirstName, Mode=OneWay}"
                  />
-        <TextBox Grid.Row="8" Grid.Column="3" FontSize="20" Height="35"
+        <TextBlock Grid.Row="8" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
+                 
                  />
-        
-        
-
     </Grid>
+    
 </UserControl>

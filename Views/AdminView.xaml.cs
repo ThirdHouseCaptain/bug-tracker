@@ -35,10 +35,6 @@ namespace bug_tracker.Views
                     usc = new UCEmployeeManagementView();
                     GridMain.Children.Add(usc);
                     break;
-                case "ItemCreate":
-                    usc = new UserControlCreate();
-                    GridMain.Children.Add(usc);
-                    break;
                 default:
                     break;
             }

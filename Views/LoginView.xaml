@@ -30,9 +30,11 @@
             </Grid.RowDefinitions>
 
             <Image Grid.Row="1" Grid.Column="1"
-               Grid.ColumnSpan="2"
-               Source="D:\Programs\C#\bug-tracker\logo.png"
-               />
+               Grid.ColumnSpan="2" >
+                <Image.Source>
+                    <BitmapImage UriSource="/images/logo.png"/>
+                </Image.Source>
+            </Image>
             <TextBlock Grid.Row="2" Grid.Column="1" Text="Admin Login"
                    x:Name="adminUserLoginText" FontSize="25"
                    VerticalAlignment="Center"
@@ -55,6 +57,7 @@
                  Background="#FFF6F6F6"
                  Foreground="DarkGray"
                  TextAlignment="Center"
+                 x:Name="Test"
                  Style="{DynamicResource RoundedCornerTextboxStyle}"/>
 
             <TextBlock Grid.Row="4" Grid.Column="1" Text="Password:"
@@ -72,6 +75,7 @@
                  Background="#FFF6F6F6"
                  Foreground="DarkGray"
                  TextAlignment="Center" 
+                 Text="{Binding Path=Test, Mode=OneWay}"
                  Style="{DynamicResource RoundedCornerTextboxStyle}"/>
 
             <Button Grid.Column="1" Grid.Row="5" Margin="120, 5, 120, 5"
@@ -91,11 +95,15 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
-                <Image Source="D:\Programs\C#\bug-tracker\close4.png"
+                <Image
                    Height="15" Width="15"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   RenderOptions.BitmapScalingMode="HighQuality"/>
+                   RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image.Source>
+                        <BitmapImage UriSource="/images/close4.png"/>
+                    </Image.Source>
+                </Image>
             </Button>
 
             <Button x:Name="minimizeBtn"  Background="Transparent"
@@ -106,11 +114,15 @@
                 Click="minimizeBtn_Click"
                 Style="{DynamicResource RoundedButtonStyle}" 
                 Grid.Column="2" Grid.RowSpan="2">
-                <Image Source="D:\Programs\C#\bug-tracker\minimize.png"
+                <Image
                    Height="15" Width="15"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   RenderOptions.BitmapScalingMode="HighQuality"/>
+                   RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image.Source>
+                        <BitmapImage UriSource="/images/minimize.png"/>
+                    </Image.Source>
+                </Image>
             </Button>
         </Grid>
     </Border>

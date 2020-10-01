@@ -186,12 +186,16 @@
                             Style="{DynamicResource RoundedButtonStyle}"
                             Grid.Column="2"
                             Grid.RowSpan="2">
-                        <Image Source="D:\Programs\C#\bug-tracker\minimizew.png"
+                        <Image 
                                Height="25"
                                Width="25"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               RenderOptions.BitmapScalingMode="HighQuality" />
+                               RenderOptions.BitmapScalingMode="HighQuality">
+                            <Image.Source>
+                                <BitmapImage UriSource="/images/minimizew.png"/>
+                            </Image.Source>
+                        </Image>
                     </Button>
 
                     <Button x:Name="closeBtn"
@@ -206,12 +210,16 @@
                             Grid.Column="2"
                             Grid.RowSpan="2"
                             Grid.ColumnSpan="2">
-                        <Image Source="D:\Programs\C#\bug-tracker\closew.png"
+                        <Image
                                Height="25"
                                Width="25"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               RenderOptions.BitmapScalingMode="HighQuality" />
+                               RenderOptions.BitmapScalingMode="HighQuality">
+                            <Image.Source>
+                                <BitmapImage UriSource="/images/closew.png" />
+                            </Image.Source>
+                        </Image>
                     </Button>
 
                     <TextBlock x:Name="currentUser"
@@ -267,14 +275,15 @@
                             </TransformGroup>
                         </Grid.RenderTransform>
 
-                        <Image Height="120"
-                               Source="D:\Programs\C#\bug-tracker\logo_n.png"
-                               VerticalAlignment="Center">
+                        <Image Height="120" VerticalAlignment="Center">
                             <Image.Effect>
                                 <DropShadowEffect BlurRadius="10"
                                                   ShadowDepth="1"
                                                   Color="#FFAEAEAE" />
                             </Image.Effect>
+                            <Image.Source>
+                                <BitmapImage UriSource = "/images/logo_n.png"/>
+                            </Image.Source>
                         </Image>
                     </Grid>
                     
