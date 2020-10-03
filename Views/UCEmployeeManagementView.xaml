@@ -149,55 +149,43 @@
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
-                 x:Name="FirstName"
+                 x:Name="FirstNamea" Text="{Binding Path=FirstName, Mode=TwoWay}"
                  />
         <TextBox Grid.Row="3" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
-                 x:Name="LastName"
+                 x:Name="LastNamea" Text="{Binding Path=LastName, Mode=TwoWay}"
                  />
         <TextBox Grid.Row="4" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
-                 x:Name="PhoneNumber"
+                 x:Name="PhoneNumbera" Text="{Binding Path=PhoneNumber, Mode=TwoWay}"
                  />
         <TextBox Grid.Row="5" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
-                 x:Name="EmailID"
+                 x:Name="EmailIDa" Text="{Binding Path=PhoneNumber, Mode=TwoWay}"
                  />
         <ComboBox Grid.Row="6" Grid.Column="3" 
                   Margin="10,0,20,0" Foreground="Green"
                   FontSize="15"
                   SelectedIndex="0" FontFamily="Oregon LDO"
-                  x:Name="Position">
-            <ComboBoxItem>
-                Developer
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Team Lead
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Tester
-            </ComboBoxItem>
-            <ComboBoxItem>
-                Admin
-            </ComboBoxItem>
+                  Name="Position">
         </ComboBox>
         <TextBlock Grid.Row="7" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
-                 Text="{Binding Path=FirstName, Mode=OneWay}"
+                 Text="{Binding Path=EmpID, Mode=OneWay}"
                  />
-        <TextBlock Grid.Row="8" Grid.Column="3" FontSize="20" Height="35"
+        <TextBox Grid.Row="8" Grid.Column="3" FontSize="20" Height="35"
                  VerticalAlignment="Center" Margin="10, 5, 20, 5"
                  Background="Transparent" Foreground="Green"
                  TextAlignment="Left" FontFamily="Oregon LDO"
-                 
+                 Text="{Binding Path=Password, Mode=TwoWay}"
                  />
     </Grid>
     

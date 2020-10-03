@@ -20,9 +20,22 @@ namespace bug_tracker.Views
     /// </summary>
     public partial class UCEmployeeManagementView : UserControl
     {
+        private string[] LoadComboBoxData()
+        {
+            string[] strArray = {
+                "Developer",
+                "Admin",
+                "Team Lead",
+                "Tester",
+                "Designer"
+            };
+            return strArray;
+        }
+
         public UCEmployeeManagementView()
         {
             InitializeComponent();
+            Position.ItemsSource = LoadComboBoxData();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

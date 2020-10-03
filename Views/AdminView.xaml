@@ -11,7 +11,7 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
-        Background="Transparent"
+        Background="Azure"
         WindowStyle="None"
         Title="AdminView"
         Height="600"
@@ -156,28 +156,27 @@
             <BeginStoryboard Storyboard="{StaticResource CloseMenu}" />
         </EventTrigger>
     </Window.Triggers>
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,1080,600" RadiusX="10" RadiusY="10"/>
+    </Window.Clip>
 
-    <Border CornerRadius="10"
-            Background="Azure"
-            BorderBrush="Gray"
-            BorderThickness="0.3">
-        <Grid>
-            <Grid x:Name="GridMain"
+    <Grid>
+        <Grid x:Name="GridMain"
                   HorizontalAlignment="Right"
                   VerticalAlignment="Bottom"
                   Height="540"
                   Width="1010" />
-            <Grid Height="60"
+        <Grid Height="60"
                   VerticalAlignment="Top"
                   Background="#347914">
-                <Grid.Effect>
-                    <DropShadowEffect BlurRadius="10"
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10"
                                       ShadowDepth="1"
                                       Color="#FFACACAC" />
-                </Grid.Effect>
-                <StackPanel Orientation="Horizontal"
+            </Grid.Effect>
+            <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right">
-                    <Button x:Name="minimizeBtn"
+                <Button x:Name="minimizeBtn"
                             Background="Transparent"
                             FontWeight="Bold"
                             Height="40"
@@ -186,19 +185,19 @@
                             Style="{DynamicResource RoundedButtonStyle}"
                             Grid.Column="2"
                             Grid.RowSpan="2">
-                        <Image 
+                    <Image 
                                Height="25"
                                Width="25"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                RenderOptions.BitmapScalingMode="HighQuality">
-                            <Image.Source>
-                                <BitmapImage UriSource="/images/minimizew.png"/>
-                            </Image.Source>
-                        </Image>
-                    </Button>
+                        <Image.Source>
+                            <BitmapImage UriSource="/images/minimizew.png"/>
+                        </Image.Source>
+                    </Image>
+                </Button>
 
-                    <Button x:Name="closeBtn"
+                <Button x:Name="closeBtn"
                             Background="Transparent"
                             FontWeight="Bold"
                             Height="40"
@@ -210,145 +209,147 @@
                             Grid.Column="2"
                             Grid.RowSpan="2"
                             Grid.ColumnSpan="2">
-                        <Image
+                    <Image
                                Height="25"
                                Width="25"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                RenderOptions.BitmapScalingMode="HighQuality">
-                            <Image.Source>
-                                <BitmapImage UriSource="/images/closew.png" />
-                            </Image.Source>
-                        </Image>
-                    </Button>
+                        <Image.Source>
+                            <BitmapImage UriSource="/images/closew.png" />
+                        </Image.Source>
+                    </Image>
+                </Button>
 
-                    <TextBlock x:Name="currentUser"
+                <TextBlock x:Name="currentUser"
                                Text=""
                                VerticalAlignment="Center"
                                FontSize="16" />
-                    <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges"
+                <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges"
                                              StaysOpen="False"
                                              Margin="10">
-                        <!--<StackPanel Width="150">
+                    <!--<StackPanel Width="150">
                             <Button Content="Settings"/>
                             <Button Content="Account"/>
                             <Button Content="Help"/>
                             <Separator/>
                             <Button Content="Logout"/>
                         </StackPanel>-->
-                    </materialDesign:PopupBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal"
+                </materialDesign:PopupBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    <!--<Image Source="D:\Programs\C#\bug-tracker\logo_n.png"/>-->
-                    <TextBlock FontFamily="Bungee"
+                <!--<Image Source="D:\Programs\C#\bug-tracker\logo_n.png"/>-->
+                <TextBlock FontFamily="Bungee"
                                Foreground="Black"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
-                               FontSize="22">BugSharp</TextBlock>
-                    <TextBlock FontFamily="Lemon Milk"
+                               FontSize="22">BugSharp
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="1"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock FontFamily="Lemon Milk"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="15" Text=" Admin Panel" Margin="0,21"/>
-                </StackPanel>
+            </StackPanel>
 
-            </Grid>
-            <Grid x:Name="GridMenu"
+        </Grid>
+        <Grid x:Name="GridMenu"
                   Width="70"
                   HorizontalAlignment="Left"
                   Background="#1c3f0c">
-                <Grid.Effect>
-                    <DropShadowEffect BlurRadius="10"
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10"
                                       ShadowDepth="1"
                                       Color="#FFAEAEAE" />
-                </Grid.Effect>
-                <StackPanel>
-                    <Grid Height="140"
+            </Grid.Effect>
+            <StackPanel>
+                <Grid Height="140"
                           Background="White"
                           RenderTransformOrigin="0.5,0.5">
-                        <Grid.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform />
-                                <SkewTransform />
-                                <RotateTransform />
-                                <TranslateTransform />
-                            </TransformGroup>
-                        </Grid.RenderTransform>
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Grid.RenderTransform>
 
-                        <Image Height="120" VerticalAlignment="Center">
-                            <Image.Effect>
-                                <DropShadowEffect BlurRadius="10"
+                    <Image Height="120" VerticalAlignment="Center">
+                        <Image.Effect>
+                            <DropShadowEffect BlurRadius="10"
                                                   ShadowDepth="1"
                                                   Color="#FFAEAEAE" />
-                            </Image.Effect>
-                            <Image.Source>
-                                <BitmapImage UriSource = "/images/logo_n.png"/>
-                            </Image.Source>
-                        </Image>
-                    </Grid>
-                    
-                    <ListView x:Name="ListViewMenu"
+                        </Image.Effect>
+                        <Image.Source>
+                            <BitmapImage UriSource = "/images/logo_n.png"/>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+
+                <ListView x:Name="ListViewMenu"
                               Foreground="#9cc410"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                               SelectionChanged="ListViewMenu_SelectionChanged">
-                        <ListViewItem x:Name="ItemHome"
+                    <ListViewItem x:Name="ItemHome"
                                       Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="AccountSupervisor"
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="AccountSupervisor"
                                                          Height="25"
                                                          Width="25"
                                                          Margin="10" />
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="Employee"
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="Employee"
                                            VerticalAlignment="Center"
                                            Margin="20 5" 
                                            />
-                                    <TextBlock Text="Management"
+                                <TextBlock Text="Management"
                                            VerticalAlignment="Center"
                                            Margin="20 -5" 
                                            />
 
-                                </StackPanel>
                             </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem x:Name="ItemCreate"
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem x:Name="ItemCreate"
                                       Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Pencil"
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Pencil"
                                                          Height="25"
                                                          Width="25"
                                                          Margin="10" />
-                                <TextBlock Text="Create"
+                            <TextBlock Text="Create"
                                            VerticalAlignment="Center"
                                            Margin="20 10" />
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Ticket"
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Ticket"
                                                          Height="25"
                                                          Width="25"
                                                          Margin="10" />
-                                <TextBlock Text="Tickets"
+                            <TextBlock Text="Tickets"
                                            VerticalAlignment="Center"
                                            Margin="20 10" />
-                            </StackPanel>
-                        </ListViewItem>
-                        <ListViewItem Height="60">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Message"
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Message"
                                                          Height="25"
                                                          Width="25"
                                                          Margin="10" />
-                                <TextBlock Text="Messages"
+                            <TextBlock Text="Messages"
                                            VerticalAlignment="Center"
                                            Margin="20 10" />
-                            </StackPanel>
-                        </ListViewItem>
-                    </ListView>
-                </StackPanel>
-            </Grid>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
         </Grid>
-    </Border>
-
+    </Grid>
 </Window>

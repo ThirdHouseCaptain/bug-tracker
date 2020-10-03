@@ -10,7 +10,14 @@ namespace bug_tracker.ViewModels
     public class AdminViewModel : Screen
     {
         
-        private String _firstName = "Hellooo";
+        private String _firstName;
+        private String _lastName;
+        private String _phoneNumber;
+        private String _emailID;
+        private String _position;
+        private String _empId;
+        private String _password;
+     
         public String FirstName
         {
             get 
@@ -21,17 +28,24 @@ namespace bug_tracker.ViewModels
             {
                 _firstName = value;
                 NotifyOfPropertyChange(() => FirstName);
+                NotifyOfPropertyChange(() => EmpID);
             }
         } 
 
-        private String _lastName;
+        
         public String LastName
         {
             get { return _lastName; }
-            set { _lastName = value; }
+            set 
+            { 
+                _lastName = value;
+                NotifyOfPropertyChange(() => LastName);
+                NotifyOfPropertyChange(() => EmpID);
+            }
         }
 
-        private String _phoneNumber;
+        
+
 
         public String PhoneNumber
         {
@@ -39,7 +53,7 @@ namespace bug_tracker.ViewModels
             set { _phoneNumber = value; }
         }
 
-        private String _emailID;
+        
 
         public String EmailID
         {
@@ -47,26 +61,29 @@ namespace bug_tracker.ViewModels
             set { _emailID = value; }
         }
 
-        private String _position;
-
+        
         public String Position
         {
             get { return _position; }
             set { _position = value; }
         }
 
-        private String _empId;
+        
 
         public String EmpID
         {
-            get { return _empId; }
+            get 
+            {
+                return $"{FirstName}{LastName}"; 
+            }
             set
             {
-                _empId = value;
+                _empId = $"{FirstName}{LastName}";
+                //NotifyOfPropertyChange(() => EmpID);
             }
         }
 
-        private String _password;
+        
 
         public String Password
         {

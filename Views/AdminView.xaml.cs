@@ -22,6 +22,8 @@ namespace bug_tracker.Views
         public AdminView()
         {
             InitializeComponent();
+            UserControl usc = new UCEmployeeManagementView();
+            GridMain.Children.Add(usc);
         }
         
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -31,6 +31,11 @@
 
             <Image Grid.Row="1" Grid.Column="1"
                Grid.ColumnSpan="2" >
+                <Image.Effect>
+                    <DropShadowEffect BlurRadius="5"
+                                      ShadowDepth="1"
+                                      Color="#FFAEAEAE" />
+                </Image.Effect>
                 <Image.Source>
                     <BitmapImage UriSource="/images/logo.png"/>
                 </Image.Source>
@@ -83,9 +88,10 @@
                 Grid.ColumnSpan="2"
                 FontFamily="Arial" FontSize="20"
                 Foreground="white" Background="#9cc410" 
-                Style="{DynamicResource RoundedButtonStyle}"/>
+                Style="{DynamicResource RoundedButtonStyle}">
+            </Button>
 
-            <Button x:Name="closeBtn"  Background="Transparent"
+                <Button x:Name="closeBtn"  Background="Transparent"
                 FontWeight="Bold"
                 Margin="250,3,3,140"
                 Height="22"
